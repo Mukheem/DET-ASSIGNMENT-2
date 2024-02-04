@@ -17,6 +17,6 @@ public class PlayerController : MonoBehaviour
         Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick,OVRInput.GetActiveController());
         transform.Translate(new Vector3(axis.x, 0, axis.y) * 2 * Time.deltaTime);
 
-        transform.RotateAround(this.transform.position, Vector3.up, 20 * Time.deltaTime);
+        //transform.RotateAround(this.transform.position, Vector3.up, 20 * Time.deltaTime);
     }
 }
