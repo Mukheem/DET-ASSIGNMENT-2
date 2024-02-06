@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectsFeedback : MonoBehaviour
 {
     Transform[] skullMagicCircleChildObjects;
+    Transform[] radishCircleChildObjects;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,24 @@ public class ObjectsFeedback : MonoBehaviour
             }
            
         }
+        // Radish Circle Object feedback
+        if (other.gameObject.CompareTag("Radish Circle"))
+        {
+            Debug.Log("Entering Trigger Zone - Radish Circle");
+            radishCircleChildObjects = other.gameObject.GetComponentsInChildren<Transform>();
+            
+           
+            for (int i = 1; i < radishCircleChildObjects.Length; i++)
+            {
+                Debug.Log(radishCircleChildObjects[i].name);
+                if (radishCircleChildObjects[i].name.Contains("Sparks"))
+                {
+                    radishCircleChildObjects[i].gameObject.SetActive(false);
+                }
+                
+            }
+
+        }
     }
     public void OnTriggerExit(Collider other)
     {
@@ -39,7 +58,6 @@ public class ObjectsFeedback : MonoBehaviour
         {
             Debug.Log("Exiting Trigger Zone - Skull Circle");
            
-
             for (int i = 1; i < 4; i++)
             {
                 Debug.Log(skullMagicCircleChildObjects[i].name);
@@ -47,5 +65,18 @@ public class ObjectsFeedback : MonoBehaviour
             }
 
         }
+
+        // Radish Circle Object feedback
+        if (other.gameObject.CompareTag("Radish Circle"))
+        {
+            Debug.Log("Exiting Trigger Zone - Radish Circle");
+
+            for (int i = 1; i < radishCircleChildObjects.Length; i++)
+            {
+                    radishCircleChildObjects[i].gameObject.SetActive(true);
+            }
+
+        }
     }
+
 }

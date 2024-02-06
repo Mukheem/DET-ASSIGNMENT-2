@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Skull Circle
+  - Obj-Skull
+  - Obj-Beetroot
+  - Radish Circle
+  - Obj-Parsnip
   layers:
   - Default
   - TransparentFX
