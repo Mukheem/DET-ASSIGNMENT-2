@@ -8,16 +8,16 @@ using Oculus.Interaction.Input;
 public class PlayerController : MonoBehaviour
 {
 
-    public float movementSpeed = 0.5f;
+    public float spawnDistance = 2f;
 
     public AudioSource backgroundMusicSource;
-    
+    public GameObject canvasObject;
 
     OVRCameraRig[] CameraRig;
     // Start is called before the first frame update
     void Start()
     {
-        // CameraRig = gameObject.GetComponentsInChildren<OVRCameraRig>();
+        CameraRig = gameObject.GetComponentsInChildren<OVRCameraRig>();
        
         // Play BG music wth a delay
        //backgroundMusicSource.Play(3);
@@ -31,7 +31,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // Make Menu follow the user vision
+        Transform headTransform = CameraRig[0].centerEyeAnchor; // Assuming OVR Rig
+        canvasObject.transform.position = headTransform.position + new Vector3(headTransform.forward.x, 0, headTransform.forward.z).normalized * spawnDistance;
+        canvasObject.transform.LookAt(new Vector3(headTransform.position.x, canvasObject.transform.position.y, headTransform.position.z));
+        canvasObject.transform.forward *= -1;
 
 /*
   
