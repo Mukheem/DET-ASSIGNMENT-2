@@ -3897,7 +3897,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _syntheticHand
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 416886445}
     - target: {fileID: 4815712199228594538, guid: eacb945ff4b1f71479625dd1c973b0f2,
         type: 3}
       propertyPath: _hand
@@ -9058,7 +9058,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _syntheticHand
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 416886448}
     - target: {fileID: 3693003488529933272, guid: 8b13b070429a7684eb2c1ae2367ad765,
         type: 3}
       propertyPath: _rotation.w
@@ -10002,7 +10002,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _syntheticHand
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 416886445}
     - target: {fileID: 8646129326984794350, guid: 885ecae56b16f13428a67de5ae482a72,
         type: 3}
       propertyPath: _hand
@@ -15220,7 +15220,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _syntheticHand
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 416886448}
     - target: {fileID: 4815712199228594538, guid: eacb945ff4b1f71479625dd1c973b0f2,
         type: 3}
       propertyPath: _hand
