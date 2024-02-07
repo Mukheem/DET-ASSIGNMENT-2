@@ -50,6 +50,7 @@ public class ObjectsFeedback : MonoBehaviour
             }
 
         }
+
     }
     public void OnTriggerExit(Collider other)
     {

@@ -9,6 +9,11 @@ TagManager:
   - Obj-Beetroot
   - Radish Circle
   - Obj-Parsnip
+  - SamplesInfoPanel
+  - Bone Circle
+  - Obj-Bone
+  - Bottle Circle
+  - Obj-Bottle
   layers:
   - Default
   - TransparentFX
