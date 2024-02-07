@@ -8,12 +8,26 @@ public class PlayerController : MonoBehaviour
 {
 
     public float movementSpeed = 0.5f;
-    //public GameObject ovrPlayerController;
+
+    public AudioSource backgroundMusicSource;
+    public AudioSource introAudio;
+
     OVRCameraRig[] CameraRig;
     // Start is called before the first frame update
     void Start()
     {
-        CameraRig = gameObject.GetComponentsInChildren<OVRCameraRig>();
+        // CameraRig = gameObject.GetComponentsInChildren<OVRCameraRig>();
+       
+        // Play BG music wth a delay
+        backgroundMusicSource.Play(3);
+        // Play IntroAudio after a delay
+        Invoke("PlayIntroAudio", 3f);
+    }
+
+    // Method to play the introAudio
+    void PlayIntroAudio()
+    {
+        introAudio.Play();
     }
 
     // Update is called once per frame
@@ -21,7 +35,7 @@ public class PlayerController : MonoBehaviour
     {
 
 
-
+/*
   
         Transform headTransform = CameraRig[0].centerEyeAnchor; // Assuming OVR Rig
 
@@ -46,7 +60,7 @@ public class PlayerController : MonoBehaviour
         }
         
 
-
+        */
 
 
         /* Vector3 moveDirection =  gameObject.transform.forward;

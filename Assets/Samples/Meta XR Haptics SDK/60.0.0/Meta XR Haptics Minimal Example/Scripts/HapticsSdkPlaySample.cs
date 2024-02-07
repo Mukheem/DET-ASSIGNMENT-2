@@ -29,8 +29,8 @@ public class HapticsSdkPlaySample : MonoBehaviour
         _playerRight2 = new HapticClipPlayer(clip2);
 
         // We increase the priority for the second player on both hands.
-        //_playerLeft2.priority = 1;
-        //_playerRight2.priority = 1;
+        _playerLeft2.priority = 1;
+        _playerRight2.priority = 1;
     }
 
     // This helper function allows us to identify the controller we are currently playing back on.
@@ -138,14 +138,15 @@ public class HapticsSdkPlaySample : MonoBehaviour
     public void PlayVibration()
     {
         
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.LTouch) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch))
+        
+        if (OVRInput.GetDown(OVRInput.RawButton.LHandTrigger, OVRInput.Controller.LTouch) || OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger, OVRInput.Controller.LTouch))
         {
             _playerLeft1.amplitude = 0.35f;
            
             _playerLeft1.Play(Controller.Left);
            
         }
-        if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger, OVRInput.Controller.RTouch))
+        if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger, OVRInput.Controller.RTouch))
         {
             _playerRight1.amplitude = 0.35f;
             _playerRight1.Play(Controller.Right);
@@ -157,14 +158,14 @@ public class HapticsSdkPlaySample : MonoBehaviour
     public void PlayStrongVibration()
     {
 
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.LTouch) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch))
+        if (OVRInput.GetDown(OVRInput.RawButton.LHandTrigger, OVRInput.Controller.LTouch) || OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger, OVRInput.Controller.LTouch))
         {
             _playerLeft2.amplitude = 0.75f;
             _playerLeft2.frequencyShift = 0.5f;
            _playerLeft2.Play(Controller.Left);
 
         }
-         if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger, OVRInput.Controller.RTouch))
+         if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger, OVRInput.Controller.RTouch) || OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger, OVRInput.Controller.RTouch))
         {
             _playerRight2.amplitude = 0.75f;
             _playerRight2.frequencyShift = 0.5f;
