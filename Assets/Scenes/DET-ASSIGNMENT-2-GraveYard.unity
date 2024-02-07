@@ -1252,6 +1252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410389675181900697, guid: b47fbfedcfef5414580d99c9115e2b8a,
         type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 939579850}
+    - target: {fileID: 7410389675181900697, guid: b47fbfedcfef5414580d99c9115e2b8a,
+        type: 3}
       propertyPath: _audioClips.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -7765,8 +7770,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16efb2de3368b6d4ca651e5916d87ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  spawnDistance: 2
   backgroundMusicSource: {fileID: 1374797863}
+  canvasObject: {fileID: 1432911469}
 --- !u!82 &1374797863
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17559,6 +17565,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkullGrabPickupAudio
       objectReference: {fileID: 0}
+    - target: {fileID: 7410389675181900697, guid: b47fbfedcfef5414580d99c9115e2b8a,
+        type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 2106633150}
     - target: {fileID: 7410389675181900697, guid: b47fbfedcfef5414580d99c9115e2b8a,
         type: 3}
       propertyPath: _audioClips.Array.size
