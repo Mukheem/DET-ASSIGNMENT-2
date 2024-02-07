@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 0.5f;
 
     public AudioSource backgroundMusicSource;
-    public AudioSource introAudio;
+    
 
     OVRCameraRig[] CameraRig;
     // Start is called before the first frame update
@@ -20,18 +20,13 @@ public class PlayerController : MonoBehaviour
         // CameraRig = gameObject.GetComponentsInChildren<OVRCameraRig>();
        
         // Play BG music wth a delay
-        backgroundMusicSource.Play(3);
-        // Play IntroAudio after a delay
-        Invoke("PlayIntroAudio", 3f);
+       //backgroundMusicSource.Play(3);
+       
 
    
     }
 
-    // Method to play the introAudio
-    void PlayIntroAudio()
-    {
-        introAudio.Play();
-    }
+    
 
     // Update is called once per frame
     void Update()
