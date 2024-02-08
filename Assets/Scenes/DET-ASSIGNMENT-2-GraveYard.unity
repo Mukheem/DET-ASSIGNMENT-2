@@ -4556,12 +4556,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome !!
-
-    Curious why you have been summoned here ? I am ''the confused
-    Witch'' who lost my body in an attempt to aquire immortality but left with soul
-    and hands alone. I needed some help in regaining my body back in real world thus
-    I pacted with Tony and Karan to send me someone who could do it for me.'
+  m_text: Welcome to my world. I am 'The Unseen Witch', a seeker of immortality who
+    lost her body in the process, but not my hands. With the help of Karan and Tony,
+    I seek to return to the real world. You are the chosen one to complete the ritual
+    for me. With your body and my left hands, help me regain my form and escape this
+    realm. The fate of both our worlds lies in your hands.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83b0b0359013fa8428421b1a5efb24f8, type: 2}
   m_sharedMaterial: {fileID: 3871436695414471952, guid: 83b0b0359013fa8428421b1a5efb24f8,
