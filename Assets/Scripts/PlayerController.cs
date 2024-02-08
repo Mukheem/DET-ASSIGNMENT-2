@@ -9,21 +9,18 @@ public class PlayerController : MonoBehaviour
 {
 
     public float spawnDistance = 2f;
-
+    public float acceleration = 0.05f;
     public AudioSource backgroundMusicSource;
     public GameObject canvasObject;
 
     OVRCameraRig[] CameraRig;
+    Transform headTransform;
     // Start is called before the first frame update
     void Start()
     {
         CameraRig = gameObject.GetComponentsInChildren<OVRCameraRig>();
        
-        // Play BG music wth a delay
-       //backgroundMusicSource.Play(3);
-       
-
-   
+        headTransform = CameraRig[0].centerEyeAnchor;     
     }
 
     
@@ -31,60 +28,32 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         // Make Menu follow the user vision
-        Transform headTransform = CameraRig[0].centerEyeAnchor; // Assuming OVR Rig
         canvasObject.transform.position = headTransform.position + new Vector3(headTransform.forward.x, 0, headTransform.forward.z).normalized * spawnDistance;
         canvasObject.transform.LookAt(new Vector3(headTransform.position.x, canvasObject.transform.position.y, headTransform.position.z));
         canvasObject.transform.forward *= -1;
 
-/*
-  
-        Transform headTransform = CameraRig[0].centerEyeAnchor; // Assuming OVR Rig
-
-        // Get forward direction and thumbstick input
-        Vector3 forwardDirection = headTransform.rotation * headTransform.forward;
-        forwardDirection.y = 0;
-        Vector2 thumbstick = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
-        if(thumbstick.y > 0)
-        {
-
-        
-        // Apply movement constraints
-        Vector3 projection = Vector3.Project(thumbstick, forwardDirection);
-        float angle = Vector3.Angle(projection, forwardDirection);
-        if (angle < 90f || projection.magnitude > movementSpeed)
-        {
-            projection = forwardDirection * movementSpeed;
-        }
-
-        // Apply movement using Transform
-        transform.Translate(projection * Time.deltaTime);
-        }
-        
-
-        */
+        // Player's rotation
+        var controllerAxis = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick, OVRInput.Controller.LTouch); //Take the input from Left thumbstick
+        float fixedY = gameObject.transform.position.y; // Fixing the position of Y so that user doesnot fly(Y axis)
+        /*Map the values of Controller with the player.
+         * 
+         * Player is in 3D space thus coordinates x,y and z. 
+         * Controller has only 2 coordinates X and Y.
+         * 
+         * Note that when a player is seen in unity from top view, Player's Z axis is up, X axis is Right and Y axis is towards you.
+         * In this case, if we have to see Controller's X and Y axes correspondence with Player's axes
+         *  then Controller's X corresponds to Player's X, Controller's Y corresponds to Player's Z. 
+         *  
+         *  Thus the below vector3 mapped { new Vector3(controllerAxis.x, 0f, controllerAxis.y) }
+         *  
+         *  
+         * */
+        Vector3 movement = new Vector3(controllerAxis.x, 0f, controllerAxis.y) * Time.deltaTime * acceleration;
+        gameObject.transform.Translate(movement, headTransform); // translating the player relative to HMD's direction. it could be local space or world space.
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, fixedY, gameObject.transform.position.z); //Trying to fix the Y axes to ground. This avoids movement of player when he looks up in the air.
 
 
-        /* Vector3 moveDirection =  gameObject.transform.forward;
-             Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
-
-             moveDirection += new Vector3(axis.x, 0, axis.y) * 2;
-             transform.position += moveDirection * Time.deltaTime;
-             OVRInput.SetControllerVibration( 0.5f, 0.5f);
-            // controller.
-
-             if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, OVRInput.Controller.LTouch)==1)
-
-             {
-                 Debug.Log("Triggered");
-                // OVRInput.SetControllerVibration(1, 1, OVRInput.Controller.LTouch);
-                // OVRInput.SetControllerLocalizedVibration(OVRInput.HapticsLocation.Index, 0.5f,0.5f, OVRInput.Controller.LTouch);
-             }
-
-
-             //transform.Translate(new Vector3(axis.x, 0, axis.y) * 2 * Time.deltaTime);
-
-             //transform.RotateAround(this.transform.position, Vector3.up, 20 * Time.deltaTime);
-        */
     }
 }
