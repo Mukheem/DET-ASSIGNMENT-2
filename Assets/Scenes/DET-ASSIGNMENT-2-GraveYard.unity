@@ -8662,8 +8662,8 @@ MonoBehaviour:
   m_text: "To proceed, gather all floating objects and position them on the plank.
     Once all five items are collected, you'll gain the ability to move the plank.
     Then, carry the plank to the portal, and await its opening \n\nUtilize the left
-    thumbstick for movement and both hands to grasp objects. When prepared, press
-    either trigger button to continue."
+    thumbstick for movement and both hands to grasp objects. When ready to start,
+    press either trigger button to continue."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
