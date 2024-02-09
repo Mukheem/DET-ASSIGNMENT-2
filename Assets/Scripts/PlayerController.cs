@@ -8,7 +8,7 @@ using Oculus.Interaction.Input;
 public class PlayerController : MonoBehaviour
 {
 
-    public float spawnDistance = 2f;
+    public float spawnDistance = 1.5f;
     public float acceleration = 0.05f;
     public AudioSource backgroundMusicSource;
     public GameObject canvasObject;
@@ -23,7 +23,13 @@ public class PlayerController : MonoBehaviour
         headTransform = CameraRig[0].centerEyeAnchor;     
     }
 
-    
+    private void FixedUpdate()
+    {
+        if (canvasObject.activeInHierarchy && (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) || OVRInput.Get(OVRInput.RawButton.RIndexTrigger)))
+        {
+            canvasObject.SetActive(false);
+        }
+    }
 
     // Update is called once per frame
     void Update()
