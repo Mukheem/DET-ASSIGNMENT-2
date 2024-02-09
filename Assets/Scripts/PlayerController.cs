@@ -7,20 +7,25 @@ using Oculus.Interaction.Input;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public float fadeSpeed = 1f;
     public float spawnDistance = 1.5f;
     public float acceleration = 0.05f;
     public AudioSource backgroundMusicSource;
     public GameObject canvasObject;
-
+    public GameObject witch;
     OVRCameraRig[] CameraRig;
     Transform headTransform;
+    public bool fadingOut = false;
+
+    public UnityEngine.UI.RawImage image;
     // Start is called before the first frame update
     void Start()
     {
         CameraRig = gameObject.GetComponentsInChildren<OVRCameraRig>();
        
-        headTransform = CameraRig[0].centerEyeAnchor;     
+        headTransform = CameraRig[0].centerEyeAnchor;
+        witch.SetActive(false);
+        
     }
 
     private void FixedUpdate()
@@ -60,6 +65,28 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.Translate(movement, headTransform); // translating the player relative to HMD's direction. it could be local space or world space.
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, fixedY, gameObject.transform.position.z); //Trying to fix the Y axes to ground. This avoids movement of player when he looks up in the air.
 
-
+        //Fades out Screen upon game completion
+        if (fadingOut)
+        {
+            image.color = new Color(0, 0, 0, image.color.a + fadeSpeed * Time.deltaTime);
+            if (image.color.a >= 1f)
+            {
+                fadingOut = false;
+            }
+        }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Witches Place");
+        Debug.Log(other.gameObject.name);
+        if(other.CompareTag("Portal"))
+        {
+            witch.SetActive(true);
+            other.gameObject.SetActive(false);
+            fadingOut = true;
+        }
+    }
+
+    
 }
