@@ -86,17 +86,18 @@ public class PlayerController : MonoBehaviour
         Debug.Log(other.gameObject.name);
         if(other.CompareTag("Portal"))
         {
+            StartCoroutine(waitTime(0.9f));
             playerAudioSource.PlayOneShot(witchScream);
             witch.SetActive(true);
             other.gameObject.SetActive(false);
             int i = 0;
             while (witch.activeInHierarchy && i<30)
             {
-                Debug.Log(witch.transform.position.z);
-                Vector3 movement = new Vector3(0f, 0f, witch.transform.position.z * 0.10f) * acceleration * Time.deltaTime;
+                //Debug.Log(witch.transform.position.z);
+                Vector3 movement = new Vector3(0f, 0f, witch.transform.position.z * 0.25f) * acceleration * Time.deltaTime;
                 witch.transform.Translate(movement);
                 i++;
-                StartCoroutine(waitTime());
+                StartCoroutine(waitTime(0.3f));
             }
             StartCoroutine(QuitApp());
             
@@ -110,9 +111,9 @@ public class PlayerController : MonoBehaviour
         #endif
         Application.Quit();
     }
-    IEnumerator waitTime()
+    IEnumerator waitTime(float waitSeconds)
     {
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSecondsRealtime(waitSeconds);
     }
 
     

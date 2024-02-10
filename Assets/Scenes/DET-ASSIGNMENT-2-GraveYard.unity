@@ -3550,17 +3550,17 @@ PrefabInstance:
     - target: {fileID: 7093923530802178894, guid: 77ee1acb13270604cbd3bc032fc152be,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.03
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 7093923530802178894, guid: 77ee1acb13270604cbd3bc032fc152be,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.03
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 7093923530802178894, guid: 77ee1acb13270604cbd3bc032fc152be,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.03
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 7093923530802178894, guid: 77ee1acb13270604cbd3bc032fc152be,
         type: 3}
@@ -3570,7 +3570,7 @@ PrefabInstance:
     - target: {fileID: 7093923530802178894, guid: 77ee1acb13270604cbd3bc032fc152be,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.079
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 7093923530802178894, guid: 77ee1acb13270604cbd3bc032fc152be,
         type: 3}
@@ -4250,7 +4250,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Welcome to my world. I am 'The unseen Witch', a seeker of immortality who
-    lost her body in the process, but not my hands. With the help of karan and tony,
+    lost her body in the process, but not my hands. With the help of Karan and Tony,
     I seek to return to the real world. You are the chosen one to complete the ritual
     for me. With your body and my left hands, help me regain my form and escape this
     realm. The fate of both our worlds lies in your hands.
@@ -8927,11 +8927,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "To proceed, gather all floating objects and position them on the plank.
-    Once all five items are collected, you'll gain the ability to move the plank.
-    Then, carry the plank to the portal, and await its opening \n\nUtilize the left
-    thumbstick for movement and both hands to grasp objects. When ready to start,
-    press both trigger buttons at once to continue."
+  m_text: 'To proceed, gather all floating objects and position them on the plank.
+    Once all five items are collected, you''ll gain the ability to move the plank.
+    Then, carry the plank to the portal, and enter into it. Ensure you don''t go
+    off the red boundary.
+
+
+    Utilize the left thumbstick for movement and both
+    hands to grasp objects. When ready to start, press both trigger buttons at once
+    to continue.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -17790,17 +17794,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6b3e9e9bf7652bd4d834546aa72f4305,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.07
+      value: -9.069
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b3e9e9bf7652bd4d834546aa72f4305,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.52
+      value: -2.29
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b3e9e9bf7652bd4d834546aa72f4305,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.7
+      value: 0.713
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b3e9e9bf7652bd4d834546aa72f4305,
         type: 3}
