@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (canvasObject.activeInHierarchy && (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) || OVRInput.Get(OVRInput.RawButton.RIndexTrigger)))
+        if (canvasObject.activeInHierarchy && (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && OVRInput.Get(OVRInput.RawButton.RIndexTrigger)))
         {
             canvasObject.SetActive(false);
         }

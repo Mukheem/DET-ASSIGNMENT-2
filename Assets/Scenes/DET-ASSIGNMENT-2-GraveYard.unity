@@ -3155,7 +3155,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3992058561654064293, guid: 13c990b8270c70b4c9f196019286028c,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1335789728}
+      addedObject: {fileID: 1335789733}
+    - targetCorrespondingSourceObject: {fileID: 3992058561654064293, guid: 13c990b8270c70b4c9f196019286028c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1335789732}
   m_SourcePrefab: {fileID: 100100000, guid: 13c990b8270c70b4c9f196019286028c, type: 3}
 --- !u!4 &525113844 stripped
 Transform:
@@ -7177,15 +7181,13 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 525113843}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &1335789728
-CircleCollider2D:
+--- !u!136 &1335789732
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335789725}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -7194,24 +7196,41 @@ CircleCollider2D:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00050002337}
+  m_ProvidesContacts: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.4205
+  m_Radius: 0.7436465
+  m_Height: 2.841
+  m_Direction: 1
+  m_Center: {x: -0.15108423, y: 0.0005000903, z: -0.55901814}
+--- !u!54 &1335789733
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335789725}
+  serializedVersion: 4
+  m_Mass: 0.001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1355263073 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 126d619cf4daa52469682f85c1378b4a,
@@ -8170,7 +8189,7 @@ MonoBehaviour:
   canvasObject: {fileID: 1432911469}
   witch: {fileID: 1653990636}
   fadingOut: 0
-  image: {fileID: 0}
+  image: {fileID: 1720745432}
 --- !u!82 &1374797863
 AudioSource:
   m_ObjectHideFlags: 0
