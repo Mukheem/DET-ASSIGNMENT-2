@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour
     OVRCameraRig[] CameraRig;
     Transform headTransform;
     public bool fadingOut = false;
+    public AudioClip witchScream;
+    private AudioSource playerAudioSource;
 
     public UnityEngine.UI.RawImage image;
     // Start is called before the first frame update
     void Start()
     {
         CameraRig = gameObject.GetComponentsInChildren<OVRCameraRig>();
-       
+        playerAudioSource = gameObject.GetComponent<AudioSource>();
         headTransform = CameraRig[0].centerEyeAnchor;
         witch.SetActive(false);
         
@@ -74,6 +76,8 @@ public class PlayerController : MonoBehaviour
                 fadingOut = false;
             }
         }
+
+        
     }
 
     public void OnTriggerEnter(Collider other)
@@ -82,10 +86,33 @@ public class PlayerController : MonoBehaviour
         Debug.Log(other.gameObject.name);
         if(other.CompareTag("Portal"))
         {
+            playerAudioSource.PlayOneShot(witchScream);
             witch.SetActive(true);
             other.gameObject.SetActive(false);
-            fadingOut = true;
+            int i = 0;
+            while (witch.activeInHierarchy && i<30)
+            {
+                Debug.Log(witch.transform.position.z);
+                Vector3 movement = new Vector3(0f, 0f, witch.transform.position.z * 0.10f) * acceleration * Time.deltaTime;
+                witch.transform.Translate(movement);
+                i++;
+                StartCoroutine(waitTime());
+            }
+            StartCoroutine(QuitApp());
+            
         }
+    }
+    IEnumerator QuitApp()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
+    }
+    IEnumerator waitTime()
+    {
+        yield return new WaitForSecondsRealtime(0.3f);
     }
 
     
